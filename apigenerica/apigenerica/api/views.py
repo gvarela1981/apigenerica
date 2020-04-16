@@ -1,8 +1,12 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from apigenerica.api.serializers import UserSerializer, GroupSerializer
+from apigenerica.api.models import Endpoint
+from apigenerica.api.serializers import UserSerializer, GroupSerializer, EndpointSerializer
 
+from django.http import HttpResponse, JsonResponse
+from rest_framework.parsers import JSONParser
+from django.views.decorators.csrf import csrf_exempt
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -25,6 +29,6 @@ class EndpointViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Endpoints to be viewed or edited.
     """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+    queryset = Endpoint.objects.all().order_by('-fecha_alta')
+    serializer_class = EndpointSerializer
     permission_classes = [permissions.IsAuthenticated]

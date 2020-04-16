@@ -14,7 +14,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
 
-class EndpointSerializer(serializers.HyperlinkedModelSerializer):
+class EndpointSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endpoint
-        fields = ['fecha_alta', 'servicio', 'title', 'url']
+        fields = ['fecha_alta', 'servicio', 'descripcion', 'url']
