@@ -1,3 +1,7 @@
+Challenge to test Python + Django for the first time
+
+initial commit April 7 2020
+
 # apigenerica
 Django API using Rest Framework
 
